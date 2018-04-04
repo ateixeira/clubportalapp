@@ -6,11 +6,13 @@ import DebugConfig from '../Config/DebugConfig';
 
 import { StartupTypes } from '../Redux/StartupRedux';
 import { LoginTypes } from '../Redux/Login';
+import { UserTypes } from '../Redux/User';
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
 import { login } from './LoginSagas'
+import { user } from './UserSagas';
 
 /* ------------- API ------------- */
 
@@ -25,5 +27,6 @@ export default function* root() {
         // some sagas only receive an action
         takeLatest(StartupTypes.STARTUP, startup),
         takeLatest(LoginTypes.LOGIN_REQUEST, login, api),
+        takeLatest(UserTypes.USER_DETAILS_REQUEST, user, api),
     ]
 }
