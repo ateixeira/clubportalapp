@@ -6,7 +6,8 @@ export default StyleSheet.create({
       flex: 1,
       paddingHorizontal: 26,
       paddingTop: 26,
-      paddingBottom: 18
+      paddingBottom: 18,
+      backgroundColor: '#ffffff',
     },
         keyboardAvoidingView: {
             flex: 1,

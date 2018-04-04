@@ -14,25 +14,31 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import styles from './Styles/LoginScreenStyles';
-import { Images } from '../Themes';
+import { Images, Metrics } from '../Themes';
 import LoginActions from '../Redux/Login';
 import * as hoc from './Hocs';
+
+console.ignoredYellowBox = ['Warning: Overriding', 'Warning: Failed', 'Set'];
 
 const DismissKeyboardView = hoc.DismissKeyboard(View);
 const FullSCreenSpinnerAndDismissKeyboardView = hoc.Spinner(
   DismissKeyboardView
 );
+const KeyboardAwareImage = hoc.KeyboardAware(Image);
 const KeyboardAwareView = hoc.KeyboardAware(View);
-const KeyboardAwareImage = hoc.KeyboardAware(View);
 
 class LoginScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: 'andreteixeira',
+      username: '',
       password: ''
     }
-    this.isAttempting = false
+  }
+
+  handlePressLogin = () => {
+    const { username, password } = this.state
+    this.props.attemptLogin(username, password)
   }
 
   render() {
@@ -59,12 +65,12 @@ class LoginScreen extends React.Component {
             ref={(input) => this.passwordInput = input}
             onChangeText={(password) => this.setState({ password: password })}
           />
-          <TouchableOpacity onPress={this.submitLogin} style={[styles.button]}>
+          <TouchableOpacity onPress={this.handlePressLogin} style={[styles.button]}>
             <Text style={{ color: 'white', fontSize: 20, fontWeight: '600' }}>SIGN IN</Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
         <View style={styles.footerContainer}>
-          <Text style={{ alignSelf: 'center', color: '#A6A8A9', fontSize: 15 }}> Don’t have an account yet ?</Text>
+          <Text style={{ alignSelf: 'center', color: '#A6A8A9', fontSize: 15 }}> Is this your first access ?</Text>
           <TouchableOpacity style={[styles.footer]}>
             <Text style={{ color: '#25bade', fontSize: 15 }}> Activate your account </Text>
           </TouchableOpacity>
