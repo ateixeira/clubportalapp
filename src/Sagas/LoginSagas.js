@@ -11,10 +11,8 @@ const { getStateForAction } = AppNavigator.router;
 // export function * login ({ username, password }) {
 export function* login(api, action) {
     const { username, password } = action;
-    console.log('ON LOGIN SagAAA --> ', username, password);
     //calling the authenticate api
     const response = yield call(api.authenticate, username, password);
-    console.log('ON LOGIN SagAAA response --> ', response);
     if (response.ok) {
         // const firstUser = path(['data', 'items'], response)[0]
         // const avatar = firstUser.avatar_url

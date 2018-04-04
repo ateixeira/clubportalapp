@@ -36,8 +36,8 @@ const create = (baseURL = 'https://club-portal.linkit.nl/') => {
   //
   const getRoot = () => api.get('')
   const getRate = () => api.get('rate_limit')
-  const getUser = (username) => api.get('api/authenticate', {q: username})
-  const authenticate = (username, password) => api.post('api/authenticate', { "username": username, "password": password })
+  const getUser = (username, token) => api.get('api/account', { 'token': token }, { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' } })
+  const authenticate = (username, password) => api.post('api/authenticate', { 'username': username, 'password': password })
 
   // ------
   // STEP 3

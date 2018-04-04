@@ -16,7 +16,7 @@ import { connect } from 'react-redux';
 import styles from './Styles/LoginScreenStyles';
 import { Images, Metrics } from '../Themes';
 import LoginActions from '../Redux/Login';
-import * as hoc from './Hocs';
+import * as hoc from '../Components/Hocs';
 
 console.ignoredYellowBox = ['Warning: Overriding', 'Warning: Failed', 'Set'];
 
