@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga/effects';
+import { takeLatest, takeEvery } from 'redux-saga/effects';
 import API from '../Services/Api';
 import DebugConfig from '../Config/DebugConfig';
 
@@ -7,12 +7,14 @@ import DebugConfig from '../Config/DebugConfig';
 import { StartupTypes } from '../Redux/StartupRedux';
 import { LoginTypes } from '../Redux/Login';
 import { UserTypes } from '../Redux/User';
+import { ClubDaysTypes } from '../Redux/ClubDays';
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
 import { login } from './LoginSagas'
 import { user } from './UserSagas';
+import { clubdays } from './ClubDaysSagas';
 
 /* ------------- API ------------- */
 
@@ -28,5 +30,6 @@ export default function* root() {
         takeLatest(StartupTypes.STARTUP, startup),
         takeLatest(LoginTypes.LOGIN_REQUEST, login, api),
         takeLatest(UserTypes.USER_DETAILS_REQUEST, user, api),
+        takeLatest(ClubDaysTypes.CLUBDAYS_REQUEST, clubdays, api)
     ]
 }

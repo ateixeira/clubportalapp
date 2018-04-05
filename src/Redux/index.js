@@ -9,6 +9,7 @@ export default () => {
         appState: require('./AppStateRedux').reducer,
         login: require('./Login').reducer,
         user: require('./User').reducer,
+        clubdays: require('./ClubDays').reducer,
     });
 
     return configureStore(rootReducer, rootSaga);
