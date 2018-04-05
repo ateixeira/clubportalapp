@@ -36,8 +36,9 @@ const create = (baseURL = 'https://club-portal.linkit.nl/') => {
   //
   const getRoot = () => api.get('')
   const getRate = () => api.get('rate_limit')
-  const getUser = (username, token) => api.get('api/account', { 'token': token }, { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' } })
   const authenticate = (username, password) => api.post('api/authenticate', { 'username': username, 'password': password })
+  const getUser = (username, token) => api.get('api/account', { 'token': token }, { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' } })
+  const getClubDays = (token) => api.get('api/club-days', { 'token': token }, { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' } })
 
   // ------
   // STEP 3
@@ -56,6 +57,7 @@ const create = (baseURL = 'https://club-portal.linkit.nl/') => {
     getRoot,
     getRate,
     getUser,
+    getClubDays,
     authenticate
   }
 }

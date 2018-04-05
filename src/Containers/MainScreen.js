@@ -4,11 +4,13 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import styles from './Styles/MainScreenStyles';
 import LoginActions from '../Redux/Login';
 import UserActions from '../Redux/User';
+import ClubDaysActions from '../Redux/ClubDays';
 
 class MainScreen extends Component {
   componentDidMount(){
     const { username, token } = this.props.login;
     this.props.getUserDetails(username, token);
+    this.props.getClubDays(token);
   }
   render() {
     const { navigate } = this.props.navigation
@@ -42,6 +44,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getUserDetails: (username, token) => dispatch(UserActions.userDetailsRequest(username, token)),
+    getClubDays: (token) => dispatch(ClubDaysActions.clubdaysRequest(token)),
     logout: () => dispatch(LoginActions.logout())
   }
 }
