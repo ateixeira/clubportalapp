@@ -1,0 +1,76 @@
+{
+  "total_count": 4,
+  "incomplete_results": false,
+  "items": [
+    {
+      "id": "user-2",
+      "login": "admin",
+      "firstName": "admin",
+      "lastName": "Administrator",
+      "email": "admin@localhost",
+      "imageUrl": null,
+      "activated": true,
+      "langKey": "en",
+      "createdBy": "system",
+      "createdDate": "2018-02-19T21:10:34.309Z",
+      "lastModifiedBy": "system",
+      "lastModifiedDate": "2018-02-19T21:10:34.311Z",
+      "authorities": [
+        "ROLE_USER",
+        "ROLE_ADMIN"
+      ]
+    },
+    {
+      "id": "user-0",
+      "login": "system",
+      "firstName": "",
+      "lastName": "System",
+      "email": "system@localhost",
+      "imageUrl": null,
+      "activated": true,
+      "langKey": "en",
+      "createdBy": "system",
+      "createdDate": "2018-02-19T21:10:34.188Z",
+      "lastModifiedBy": "system",
+      "lastModifiedDate": "2018-02-19T21:10:34.210Z",
+      "authorities": [
+        "ROLE_USER",
+        "ROLE_ADMIN"
+      ]
+    },
+    {
+      "id": "user-3",
+      "login": "user",
+      "firstName": "",
+      "lastName": "User",
+      "email": "user@localhost",
+      "imageUrl": null,
+      "activated": true,
+      "langKey": "en",
+      "createdBy": "system",
+      "createdDate": "2018-02-19T21:10:34.315Z",
+      "lastModifiedBy": "system",
+      "lastModifiedDate": "2018-02-19T21:10:34.317Z",
+      "authorities": [
+        "ROLE_USER"
+      ]
+    },
+    {
+      "id": "5ac72b6d873c0724d6fad580",
+      "login": "user1",
+      "firstName": "User",
+      "lastName": "Test",
+      "email": "user.test@mailinator.com",
+      "imageUrl": null,
+      "activated": true,
+      "langKey": "en",
+      "createdBy": "admin",
+      "createdDate": "2018-04-06T08:10:21.138Z",
+      "lastModifiedBy": "admin",
+      "lastModifiedDate": "2018-04-06T08:10:21.138Z",
+      "authorities": [
+        "ROLE_USER"
+      ]
+    }
+  ]
+}

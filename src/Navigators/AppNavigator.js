@@ -11,42 +11,41 @@ import { addListener } from '../Utils/redux';
 
 
 export const AppNavigator = StackNavigator({
-    LoadingScreen: { screen: LoadingScreen },
-    LoggedInStack: { screen: LoggedInStackNavigator },
-    NotLoggedInStack: { screen: NotLoggedInStackNavigator }
+  LoadingScreen: { screen: LoadingScreen },
+  LoggedInStack: { screen: LoggedInStackNavigator },
+  NotLoggedInStack: { screen: NotLoggedInStackNavigator }
 }, {
-    initialRouteName: 'LoadingScreen',
-    headerMode: 'none',
-    navigationOptions: {
-        headerStyle: {
-            backgroundColor: 'pink'
-        }
+  initialRouteName: 'LoadingScreen',
+  headerMode: 'none',
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: 'pink'
     }
+  }
 });
 
 class AppNavigation extends React.Component {
-    static propTypes = {
-        dispatch: PropTypes.func.isRequired,
-        navigation: PropTypes.object.isRequired,
-    };
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    navigation: PropTypes.object.isRequired,
+  };
 
-    render() {
-        const { dispatch, navigation } = this.props;
-        console.log('PROPES ', this.props)
-        return (
-            <AppNavigator
-                navigation={addNavigationHelpers({
-                    dispatch,
-                    state: navigation,
-                    addListener,
-                })}
-            />
-        );
-    }
+  render() {
+    const { dispatch, navigation } = this.props;
+    return (
+      <AppNavigator
+        navigation={addNavigationHelpers({
+          dispatch,
+          state: navigation,
+          addListener,
+        })}
+      />
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-    navigation: state.navigation,
+  navigation: state.navigation,
 });
 
 export default connect(mapStateToProps)(AppNavigation);
