@@ -4,8 +4,8 @@ import { View, Text } from 'react-native';
 class LoadingScreen extends React.Component {
     render() {
         return (
-            <View style={{flex:1, justifyContent: 'center', backgroundColor: '#dedede'}}>
-                <Text>Loading screen!!!!!s</Text>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#dedede'}}>
+                <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Loading screen</Text>
             </View>
         )
     }
