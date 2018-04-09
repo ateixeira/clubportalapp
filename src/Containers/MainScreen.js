@@ -5,6 +5,8 @@ import styles from './Styles/MainScreenStyles';
 import LoginActions from '../Redux/Login';
 import UserActions from '../Redux/User';
 import ClubDaysActions from '../Redux/ClubDays';
+import UserCard from '../Components/UserCard';
+
 
 class MainScreen extends Component {
   componentDidMount(){
@@ -18,6 +20,7 @@ class MainScreen extends Component {
       <View style={styles.container}>
         <View style={styles.user_card__container}>
           {/* {this.props.user.isFetching ? loadingMsg : userCard} */}
+          <UserCard {...this.props} />
         </View>
         <View style={styles.content__container}>
         </View>

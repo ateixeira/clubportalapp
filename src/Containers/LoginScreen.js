@@ -44,9 +44,9 @@ class LoginScreen extends React.Component {
   render() {
     return (
       <FullSCreenSpinnerAndDismissKeyboardView spinner={this.props.fetching} style={styles.container}>
-        <KeyboardAvoidingView behavior="padding" style={styles.keyboardAvoidingView}>
-          <KeyboardAwareView style={styles.keyboardAwareView} styleDuringKeyboardShow={{ marginBottom: 10 }}>
-            <KeyboardAwareImage resizeMode="contain" style={styles.keyboardAwareImage}
+        <KeyboardAvoidingView behavior="padding" style={styles.keyboard__avoiding__view}>
+          <KeyboardAwareView style={styles.keyboard__aware__view} styleDuringKeyboardShow={{ marginBottom: 10 }}>
+            <KeyboardAwareImage resizeMode="contain" style={styles.keyboard__aware__image}
               styleDuringKeyboardShow={{ opacity: 0.5 }} source={Images.logo} />
           </KeyboardAwareView>
           <TextInput
@@ -54,14 +54,14 @@ class LoginScreen extends React.Component {
             keyboardType='default'
             autoCapitalize='none'
             autoCorrect={false}
-            style={[styles.textInput]}
+            style={[styles.text__input]}
             onChangeText={(username) => this.setState({ username: username })}
           />
           <TextInput
             placeholder="Password"
             returnKeyType='go'
             secureTextEntry
-            style={[styles.textInput, { marginVertical: 20 }]}
+            style={[styles.text__input, { marginVertical: 20 }]}
             ref={(input) => this.passwordInput = input}
             onChangeText={(password) => this.setState({ password: password })}
           />
@@ -69,7 +69,7 @@ class LoginScreen extends React.Component {
             <Text style={{ color: 'white', fontSize: 20, fontWeight: '600' }}>SIGN IN</Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
-        <View style={styles.footerContainer}>
+        <View style={styles.footer__container}>
           <Text style={{ alignSelf: 'center', color: '#A6A8A9', fontSize: 15 }}> Is this your first access ?</Text>
           <TouchableOpacity style={[styles.footer]}>
             <Text style={{ color: '#25bade', fontSize: 15 }}> Activate your account </Text>
