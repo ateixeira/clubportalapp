@@ -3,7 +3,6 @@ import createSagaMiddleware from 'redux-saga';
 import RehydrationServices from '../Services/RehydrationServices';
 import ReduxPersist from '../Config/ReduxPersist';
 import logger from 'redux-logger';
-import ScreenTracking from './ScreenTrackingMiddleware';
 
 // creates the store
 export default (rootReducer, rootSaga) => {
@@ -11,9 +10,6 @@ export default (rootReducer, rootSaga) => {
 
   let middleware = [];
   const enhancers = [];
-  
-  /* ------------- Analytics Middleware ------------- */
-  middleware.push(ScreenTracking)
 
   /* ------------- Dev Middleware ------------- */
   if (__DEV__) {
@@ -28,6 +24,10 @@ export default (rootReducer, rootSaga) => {
   const sagaMiddleware = createSagaMiddleware();
   middleware.push(sagaMiddleware);
 
+  /* ------------- Assemble Middleware ------------- */
+
+  enhancers.push(applyMiddleware(...middleware));
+  
   /* ------------- Redux Dev Tools Enhancer ------------- */
   
   const composeEnhancers =
@@ -36,10 +36,6 @@ export default (rootReducer, rootSaga) => {
         window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
           // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
         }) : compose;
-  
-  /* ------------- Assemble Middleware ------------- */
-
-  enhancers.push(applyMiddleware(...middleware));
 
   /* ------------- AutoRehydrate Enhancer ------------- */
 

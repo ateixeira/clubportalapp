@@ -8,7 +8,7 @@ export const selectLoggedInStatus = (state) => isLoggedIn(state.login);
 // process STARTUP actions
 export function * startup (action) {
   yield put(AppStateActions.setRehydrationComplete())
-  const isLoggedIn = yield select(selectLoggedInStatus)
+  const isLoggedIn = yield select(selectLoggedInStatus);
   if (isLoggedIn) {
     yield put(LoggedInActions.autoLogin())
   }
