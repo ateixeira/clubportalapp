@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { autoRehydrate } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
-import RehydrationServices from '../Services/RehydrationServices'
-import ReduxPersist from '../Config/ReduxPersist'
+import RehydrationServices from '../Services/RehydrationServices';
+import ReduxPersist from '../Config/ReduxPersist';
 import logger from 'redux-logger';
+import ScreenTracking from './ScreenTrackingMiddleware';
 
 // creates the store
 export default (rootReducer, rootSaga) => {
@@ -11,6 +11,9 @@ export default (rootReducer, rootSaga) => {
 
   let middleware = [];
   const enhancers = [];
+  
+  /* ------------- Analytics Middleware ------------- */
+  middleware.push(ScreenTracking)
 
   /* ------------- Dev Middleware ------------- */
   if (__DEV__) {
@@ -36,16 +39,11 @@ export default (rootReducer, rootSaga) => {
   
   /* ------------- Assemble Middleware ------------- */
 
-  enhancers.push(composeEnhancers(applyMiddleware(...middleware)));
+  enhancers.push(applyMiddleware(...middleware));
 
   /* ------------- AutoRehydrate Enhancer ------------- */
 
-  // add the autoRehydrate enhancer
-  if (ReduxPersist.active) {
-    enhancers.push(autoRehydrate());
-  }
-
-  const store = createStore(rootReducer, compose(...enhancers));
+  const store = createStore(rootReducer, composeEnhancers(...enhancers));
 
   // configure persistStore and check reducer version number
   if (ReduxPersist.active) {
@@ -53,6 +51,11 @@ export default (rootReducer, rootSaga) => {
   }
 
   // kick off root saga
-  sagaMiddleware.run(rootSaga);
-  return store;
+  let sagasManager = sagaMiddleware.run(rootSaga)
+  
+  return {
+    store,
+    sagasManager,
+    sagaMiddleware
+  }
 }
