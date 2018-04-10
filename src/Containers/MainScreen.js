@@ -6,6 +6,7 @@ import LoginActions from '../Redux/Login';
 import UserActions from '../Redux/User';
 import ClubDaysActions from '../Redux/ClubDays';
 import UserCard from '../Components/UserCard';
+import ClubDaysCard from '../Components/ClubDaysCard';
 
 
 class MainScreen extends Component {
@@ -14,6 +15,7 @@ class MainScreen extends Component {
     this.props.getUserDetails(username, token);
     this.props.getClubDays(token);
   }
+  
   render() {
     const { navigate } = this.props.navigation
     return (
@@ -23,8 +25,8 @@ class MainScreen extends Component {
           <UserCard {...this.props} />
         </View>
         <View style={styles.content__container}>
+          <ClubDaysCard {...this.props} />
         </View>
-
         <TouchableOpacity onPress={this.props.logout}>
           <Text>Logout</Text>
         </TouchableOpacity>

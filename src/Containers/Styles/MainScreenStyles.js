@@ -5,7 +5,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
-    backgroundColor: '#71BAB3'
+    backgroundColor: '#58bcb4'
   },
   user_card__container: {
     flex: 1,
