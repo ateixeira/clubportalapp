@@ -18,7 +18,7 @@ import { Images, Metrics } from '../Themes';
 import LoginActions from '../Redux/Login';
 import * as hoc from '../Components/Hocs';
 
-console.ignoredYellowBox = ['Warning: Overriding', 'Warning: Failed', 'Set'];
+console.ignoredYellowBox = ['Warning:'];
 
 const DismissKeyboardView = hoc.DismissKeyboard(View);
 const FullSCreenSpinnerAndDismissKeyboardView = hoc.Spinner(
