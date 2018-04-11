@@ -20,7 +20,17 @@ export default class TriStateSwitch extends Component {
     const { values } = Metrics.triStateSwitch.animation;
     this.min_value = values.min;
     this.max_value = values.max;
+    this.med_value = (values.min + values.max) / 2;
 
+    this.med_left_value = (this.min_value + this.med_value)/2;
+    this.med_right_value = (this.med_left_value * 3) - (this.min_value * 2);
+
+    this.state = {
+      startValue: this.min_value,
+    }
+
+    this.switchVal = this.state.startValue;
+    this.switchValAnimation = new Animated.Value(this.switchVal);
   };
 
 	switchLeft = () => {
