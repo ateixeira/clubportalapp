@@ -2,25 +2,27 @@ import { StyleSheet } from 'react-native';
 import { Colors, Metrics } from '../../Themes';
 
 export default StyleSheet.create({
+  /***** Card container *****/
   clubdays_card__container: {
+    flexDirection: 'row',
     backgroundColor: 'white',
     borderRadius: 6,
     margin: 20,
     padding: 10,
   },
-    clubdays_title__container: {
-      flexDirection: 'row',
-    },
-      clubdays_title__text: {
-        fontSize: 14,
-      },
+
+    /***** Date container *****/
     clubdays_date__container: {
+      flex: 1,
+      alignItems: 'flex-start',
       flexDirection: 'row',
+      // borderColor: '#12CBC4',
+      // borderWidth: 1,
+      marginRight: 5,
     },
       clubdays_day__container: {
-        // backgroundColor: 'red',
-        borderColor: 'black',
-        borderWidth: 1
+        // borderColor: 'black',
+        // borderWidth: 1
       },
         clubdays_day__text: {
           fontWeight: 'bold',
@@ -34,21 +36,55 @@ export default StyleSheet.create({
         justifyContent: 'center',
       },
         clubdays_weekday__container: {
-          // backgroundColor: 'blue',
-          borderColor: 'black',
-          borderWidth: 1
+          // borderColor: 'black',
+          // borderWidth: 1
         },
           clubdays_weekday__text:{
             fontWeight: 'bold',
             fontSize: 26,
           },
         clubdays_month_year__container: {
-          // backgroundColor: 'green',
-          borderColor: 'black',
-          borderWidth: 1
+          // borderColor: 'black',
+          // borderWidth: 1
         },
           clubdays_month_year__text: {
-            fontSize: 14,
+            fontSize: 12,
             fontWeight: '200',
-          }
+          },
+        clubdays_location__container: {
+          flexDirection: 'row',
+          // borderColor: 'black',
+          // borderWidth: 1
+        },
+          clubdays_location__text:{
+            fontSize: 10,
+            fontWeight: 'bold',
+          },
+    /***** Participants container *****/
+    clubdays_participants__container: {
+      flex: 1,
+      flexGrow: 1,
+      width: 200,
+      // borderColor: '#FFC312',
+      // borderWidth: 1,
+    },
+      clubdays_participants_count__text: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        // borderColor: 'blue',
+        // borderWidth: 1,
+      },
+      clubdays_participants_desc__text: {
+        alignItems: 'baseline',
+        paddingTop: 5,
+        fontSize: 10,
+        fontWeight: 'bold',
+        // borderColor: 'blue',
+        // borderWidth: 1,
+      },
+      clubdays_participants__text: {
+        fontWeight: 'bold',
+        // borderColor: 'blue',
+        // borderWidth: 1,
+      },
 });

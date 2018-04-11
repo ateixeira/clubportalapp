@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TouchableOpacity, Button } from 'react-native';
+import { View, Text, TouchableOpacity, Button, Animated } from 'react-native';
+import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles/ClubDaysCardStyles';
 
@@ -26,9 +27,6 @@ class ClubDaysCard extends React.Component {
   render() {
     return (
       <TouchableOpacity style={[styles.clubdays_card__container]}>
-        {/* <View style={[styles.clubdays_title__container]}>
-          <Text style={[styles.clubdays_title__text]}>Next Clubday</Text>
-        </View> */}
         <View style={[styles.clubdays_date__container]}>
           <View style={[styles.clubdays_day__container]}>
             <Text style={[styles.clubdays_day__text]}>20</Text>
@@ -40,6 +38,18 @@ class ClubDaysCard extends React.Component {
             <View style={[styles.clubdays_month_year__container]}>
               <Text style={[styles.clubdays_month_year__text]}>April 2018</Text>
             </View>
+            <View style={[styles.clubdays_location__container]}>
+              <Text style={[styles.clubdays_location__text]}>De meern</Text>
+              <EvilIcon name="location" size={22} color="#ED4C67" />
+            </View>
+          </View>
+        </View>
+        <View style={[styles.clubdays_participants__container]}>
+          <View style={[styles.clubdays_location__container]}>
+            <Text style={[styles.clubdays_participants_count__text]}>20</Text>
+            <Text style={[styles.clubdays_participants_desc__text]}>people will go</Text>
+          </View>
+          <View style={[styles.clubdays_location__container]}>
           </View>
         </View>
       </TouchableOpacity>
