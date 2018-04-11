@@ -14,8 +14,8 @@ export default StyleSheet.create({
     /***** Date container *****/
     clubdays_date__container: {
       flex: 1,
-      alignItems: 'flex-start',
-      flexDirection: 'row',
+      alignItems: 'center',
+      flexDirection: 'column',
       // borderColor: '#12CBC4',
       // borderWidth: 1,
       marginRight: 5,
@@ -29,42 +29,47 @@ export default StyleSheet.create({
           fontSize: 50,
           color: '#3c87b5',
           alignItems: 'flex-start',
-          paddingRight: 5,
+          marginTop: -10,
+          marginBottom: -10,
         },
-      clubdays_rest_of_date__container: {
-        flexDirection: 'column',
-        justifyContent: 'center',
+      clubdays_weekday__container: {
+        // borderColor: 'black',
+        // borderWidth: 1
       },
-        clubdays_weekday__container: {
-          // borderColor: 'black',
-          // borderWidth: 1
+        clubdays_weekday__text:{
+          fontWeight: 'bold',
+          fontSize: 26,
         },
-          clubdays_weekday__text:{
-            fontWeight: 'bold',
-            fontSize: 26,
-          },
-        clubdays_month_year__container: {
-          // borderColor: 'black',
-          // borderWidth: 1
+      clubdays_month_year__container: {
+        // borderColor: 'black',
+        alignItems: 'center', 
+        // borderWidth: 1
+      },
+        clubdays_month_year__text: {
+          fontSize: 12,
+          letterSpacing: 1.2,
+          fontWeight: '200',
         },
-          clubdays_month_year__text: {
-            fontSize: 12,
-            fontWeight: '200',
-          },
-        clubdays_location__container: {
-          flexDirection: 'row',
-          // borderColor: 'black',
-          // borderWidth: 1
+      clubdays_location__container: {
+        flexDirection: 'row',
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        paddingTop: 2,
+        // borderColor: 'black',
+        // borderWidth: 1
+      },
+        clubdays_location__text:{
+          fontSize: 10,
+          fontWeight: 'bold',
         },
-          clubdays_location__text:{
-            fontSize: 10,
-            fontWeight: 'bold',
-          },
     /***** Participants container *****/
     clubdays_participants__container: {
       flex: 1,
-      flexGrow: 1,
+      flexGrow: 2,
       width: 200,
+      paddingHorizontal: 20,
+      paddingVertical: 5,
+      justifyContent: 'space-between',
       // borderColor: '#FFC312',
       // borderWidth: 1,
     },
@@ -74,7 +79,7 @@ export default StyleSheet.create({
         // borderWidth: 1,
       },
         clubdays_participants_count__text: {
-          fontSize: 18,
+          fontSize: 22,
           fontWeight: 'bold',
           // borderColor: 'blue',
           // borderWidth: 1,
@@ -82,13 +87,24 @@ export default StyleSheet.create({
         clubdays_participants_desc__text: {
           alignItems: 'baseline',
           paddingTop: 5,
-          fontSize: 10,
+          paddingLeft: 3,
+          fontSize: 12,
+          fontWeight: 'bold',
+          // borderColor: 'blue',
+          // borderWidth: 1,
+        },
+      clubdays_participation_inquiry__container: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+      },
+        clubdays_participation_inquiry__text: {
           fontWeight: 'bold',
           // borderColor: 'blue',
           // borderWidth: 1,
         },
       clubdays_participation_switch__container: {
         flexDirection: 'row',
+        justifyContent: 'center',
         // borderColor: 'yellow',
         // borderWidth: 1,
       },

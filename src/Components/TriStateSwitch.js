@@ -127,6 +127,7 @@ export default class TriStateSwitch extends Component {
 	render(){
 		return(
       <View style={styles.container}>
+        <View style={[styles.container__frame,]} />
         {this.renderSwitch()}
       </View>
 		)

@@ -31,26 +31,27 @@ class ClubDaysCard extends React.Component {
     return (
       <TouchableOpacity style={[styles.clubdays_card__container]}>
         <View style={[styles.clubdays_date__container]}>
+          <View style={[styles.clubdays_weekday__container]}>
+            <Text style={[styles.clubdays_weekday__text]}>Friday</Text>
+          </View>
           <View style={[styles.clubdays_day__container]}>
             <Text style={[styles.clubdays_day__text]}>20</Text>
           </View>
-          <View style={[styles.clubdays_rest_of_date__container]}>
-            <View style={[styles.clubdays_weekday__container]}>
-              <Text style={[styles.clubdays_weekday__text]}>Friday</Text>
-            </View>
-            <View style={[styles.clubdays_month_year__container]}>
-              <Text style={[styles.clubdays_month_year__text]}>April 2018</Text>
-            </View>
-            <View style={[styles.clubdays_location__container]}>
-              <Text style={[styles.clubdays_location__text]}>De meern</Text>
-              <EvilIcon name="location" size={22} color="#ED4C67" />
-            </View>
+          <View style={[styles.clubdays_month_year__container]}>
+            <Text style={[styles.clubdays_month_year__text]}>April 2018</Text>
+          </View>
+          <View style={[styles.clubdays_location__container]}>
+            <Text style={[styles.clubdays_location__text]}>De meern</Text>
+            <EvilIcon name="location" size={12} color="#ED4C67" />
           </View>
         </View>
         <View style={[styles.clubdays_participants__container]}>
           <View style={[styles.clubdays_participation_summary__container]}>
-            <Text style={[styles.clubdays_participants_count__text]}>20</Text>
-            <Text style={[styles.clubdays_participants_desc__text]}>people will go</Text>
+            <Text style={[styles.clubdays_participants_count__text]}>39</Text>
+            <Text style={[styles.clubdays_participants_desc__text]}>people confirmed...</Text>
+          </View>
+          <View style={[styles.clubdays_participation_inquiry__container]}>
+            <Text style={[styles.clubdays_participation_inquiry__text]}>What about you?</Text>
           </View>
           <View style={[styles.clubdays_participation_switch__container]}>
             <TriStateSwitch
