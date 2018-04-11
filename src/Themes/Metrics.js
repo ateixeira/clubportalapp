@@ -1,6 +1,6 @@
-import {Dimensions, Platform} from 'react-native'
+import {Dimensions, Platform} from 'react-native';
 
-const { width, height } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window');
 
 // Used via Metrics.baseMargin
 const metrics = {
@@ -29,6 +29,14 @@ const metrics = {
     medium: 40,
     large: 60,
     logo: 200
+  },
+  triStateSwitch: {
+    animation: {
+      values: {
+        min: 0,
+        max: 100,
+      }
+    }
   }
 }
 
