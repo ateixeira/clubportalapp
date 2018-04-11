@@ -9,12 +9,12 @@ class UserCard extends React.Component {
       <View style={[styles.user_card__container]}>
         <TouchableOpacity style={[styles.profile__link]}>
           <View style={[styles.profile__container]}>
-            <View style={[styles.profile__container__badge]}>
+            <View style={[styles.profile__badge_container]}>
               <Icon name="user-circle" size={34} color="#ffffff" />
             </View>
-            <View style={[styles.profile__container__name]}>
-              <Text style={[styles.name]}>{this.props.user.details.firstName} {this.props.user.details.lastName} </Text>
-              <Text style={[styles.email]}>{this.props.user.details.email} </Text>
+            <View style={[styles.profile__name_container]}>
+              <Text style={[styles.profile__name_text]}>{this.props.user.details.firstName} {this.props.user.details.lastName} </Text>
+              <Text style={[styles.profile__name_email]}>{this.props.user.details.email} </Text>
             </View>
           </View>
         </TouchableOpacity>

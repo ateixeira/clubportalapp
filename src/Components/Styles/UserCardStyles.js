@@ -9,35 +9,35 @@ export default StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
-  profile__link: {
-    flex: 3
-  },
-  profile__container: {
-    flex: 4,
-    flexDirection: 'row',
-  },
-  profile__container__badge: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  profile__container__name: {
-    flex: 4,
-    justifyContent: 'center'
-  },
-  name: {
-    fontSize: 18,
-    color: '#ffffff'
-  },
-  email: {
-    fontSize: 11,
-    color: '#ffffff'
-  },
-  controls__container: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingLeft: 35,
-    paddingRight: 5,
-  },
+    profile__link: {
+      flex: 3
+    },
+    profile__container: {
+      flex: 4,
+      flexDirection: 'row',
+    },
+      profile__badge_container: {
+        flex: 1,
+        justifyContent: 'center',
+      },
+      profile__name_container: {
+        flex: 4,
+        justifyContent: 'center'
+      },
+        profile__name_text: {
+          fontSize: 18,
+          color: '#ffffff'
+        },
+        profile__name_email: {
+          fontSize: 11,
+          color: '#ffffff'
+        },
+    controls__container: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingLeft: 35,
+      paddingRight: 5,
+    },
 });
