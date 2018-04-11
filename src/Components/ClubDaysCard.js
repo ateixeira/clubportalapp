@@ -4,7 +4,9 @@ import { View, Text, TouchableOpacity, Button, Animated } from 'react-native';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles/ClubDaysCardStyles';
+import TriStateSwitch from './TriStateSwitch';
 
+const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 
 class ClubDaysCard extends React.Component {
 
@@ -51,6 +53,12 @@ class ClubDaysCard extends React.Component {
             <Text style={[styles.clubdays_participants_desc__text]}>people will go</Text>
           </View>
           <View style={[styles.clubdays_participation_switch__container]}>
+            <TriStateSwitch
+              AnimatedIcon={AnimatedIcon}
+              leftIconName={'times'}
+              middleIconName={'question'}
+              rightIconName={'check'}
+            />
           </View>
         </View>
       </TouchableOpacity>
