@@ -3,7 +3,6 @@ import { Colors, Metrics } from '../../Themes';
 
 export default StyleSheet.create({
   container: { 
-    backgroundColor: 'transparent', 
     paddingLeft: 10, 
     paddingRight: 10 
   },
@@ -14,12 +13,10 @@ export default StyleSheet.create({
     },
       switch__holder: {
         position: 'absolute',
-        backgroundColor: '#EA2027',
         height: 30,
-        width: 40,
+        width: 45,
         borderRadius: 40,
         elevation: 5,
-        marginLeft: 1.5,
         marginTop: 7.5,
         shadowOpacity: 0.2,
         shadowRadius: 4,
@@ -34,5 +31,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 100,
+        // borderColor: 'blue',
+        // borderWidth: 1,
       },
 });

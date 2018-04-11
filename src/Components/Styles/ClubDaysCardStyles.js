@@ -70,8 +70,8 @@ export default StyleSheet.create({
     },
       clubdays_participation_summary__container: {
         flexDirection: 'row',
-        borderColor: 'yellow',
-        borderWidth: 1,
+        // borderColor: 'yellow',
+        // borderWidth: 1,
       },
         clubdays_participants_count__text: {
           fontSize: 18,
@@ -89,8 +89,8 @@ export default StyleSheet.create({
         },
       clubdays_participation_switch__container: {
         flexDirection: 'row',
-        borderColor: 'yellow',
-        borderWidth: 1,
+        // borderColor: 'yellow',
+        // borderWidth: 1,
       },
         clubdays_participants__text: {
           fontWeight: 'bold',

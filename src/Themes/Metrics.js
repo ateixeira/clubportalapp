@@ -35,7 +35,8 @@ const metrics = {
       values: {
         min: 0,
         max: 100,
-      }
+      },
+      duration: 250,
     }
   }
 }

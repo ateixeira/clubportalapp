@@ -31,33 +31,55 @@ export default class TriStateSwitch extends Component {
 
     this.switchVal = this.state.startValue;
     this.switchValAnimation = new Animated.Value(this.switchVal);
+    this.switchValAnimation.addListener(({ val }) => this.switchVal = val);
+
   };
 
 	switchLeft = () => {
     console.log('clicked switchLeft');
+    this.switchToItem(0);
   }
 	switchMiddle = () => {
     console.log('clicked switchMiddle');
+    this.switchToItem(45);
   }
 	switchRight = () => {
     console.log('clicked switchRight');
+    this.switchToItem(90);
+  }
+
+  switchToItem = (target) => {
+    Animated.timing(this.switchValAnimation, {
+      toValue: target,
+      duration: Metrics.triStateSwitch.animation.duration
+    }, { useNativeDrive: true }).start(() => {
+      this.setState({ startValue: target })
+    });
   }
   
 	renderSwitch = () => {
     const AnimatedIcon = this.props.AnimatedIcon;
+    console.log('leftValue', this.state.startValue);
 
 		return (
       <View style={styles.switch__container}>
+
         <Animated.View
           ref={switchButton => this.switchButton = switchButton}
           style={[
             { left: this.switchValAnimation }, 
             styles.switch__holder,
+            { 
+              backgroundColor: this.switchValAnimation.interpolate({
+                inputRange: [0, 45, 90],
+                outputRange: ['#EA2027', '#1289A7', '#009432'],
+              })
+            }, 
           ]} 
         />
 
         <TouchableOpacity 
-          style={styles.switch__button_container} 
+          style={[styles.switch__button_container, ]} 
           onPress={this.switchLeft}>
 
           <AnimatedIcon 
@@ -71,7 +93,7 @@ export default class TriStateSwitch extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity 
-          style={styles.switch__button_container} 
+          style={[styles.switch__button_container, ]} 
           onPress={this.switchMiddle}>
 
           <AnimatedIcon
@@ -85,7 +107,7 @@ export default class TriStateSwitch extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity 
-          style={styles.switch__button_container} 
+          style={[styles.switch__button_container, ]} 
           onPress={this.switchRight}>
 
           <AnimatedIcon
