@@ -5,6 +5,7 @@ import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles/ClubDaysCardStyles';
 
+
 class ClubDaysCard extends React.Component {
 
   _getHighlightedClubDay() {
@@ -45,11 +46,11 @@ class ClubDaysCard extends React.Component {
           </View>
         </View>
         <View style={[styles.clubdays_participants__container]}>
-          <View style={[styles.clubdays_location__container]}>
+          <View style={[styles.clubdays_participation_summary__container]}>
             <Text style={[styles.clubdays_participants_count__text]}>20</Text>
             <Text style={[styles.clubdays_participants_desc__text]}>people will go</Text>
           </View>
-          <View style={[styles.clubdays_location__container]}>
+          <View style={[styles.clubdays_participation_switch__container]}>
           </View>
         </View>
       </TouchableOpacity>

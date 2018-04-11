@@ -68,23 +68,33 @@ export default StyleSheet.create({
       // borderColor: '#FFC312',
       // borderWidth: 1,
     },
-      clubdays_participants_count__text: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        // borderColor: 'blue',
-        // borderWidth: 1,
+      clubdays_participation_summary__container: {
+        flexDirection: 'row',
+        borderColor: 'yellow',
+        borderWidth: 1,
       },
-      clubdays_participants_desc__text: {
-        alignItems: 'baseline',
-        paddingTop: 5,
-        fontSize: 10,
-        fontWeight: 'bold',
-        // borderColor: 'blue',
-        // borderWidth: 1,
+        clubdays_participants_count__text: {
+          fontSize: 18,
+          fontWeight: 'bold',
+          // borderColor: 'blue',
+          // borderWidth: 1,
+        },
+        clubdays_participants_desc__text: {
+          alignItems: 'baseline',
+          paddingTop: 5,
+          fontSize: 10,
+          fontWeight: 'bold',
+          // borderColor: 'blue',
+          // borderWidth: 1,
+        },
+      clubdays_participation_switch__container: {
+        flexDirection: 'row',
+        borderColor: 'yellow',
+        borderWidth: 1,
       },
-      clubdays_participants__text: {
-        fontWeight: 'bold',
-        // borderColor: 'blue',
-        // borderWidth: 1,
-      },
+        clubdays_participants__text: {
+          fontWeight: 'bold',
+          // borderColor: 'blue',
+          // borderWidth: 1,
+        },
 });
