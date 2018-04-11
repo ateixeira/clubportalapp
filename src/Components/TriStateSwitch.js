@@ -23,6 +23,8 @@ export default class TriStateSwitch extends Component {
         </TouchableOpacity>
         <TouchableOpacity style={styles.switch__button_container} >
         </TouchableOpacity>
+        <TouchableOpacity style={styles.switch__button_container} >
+        </TouchableOpacity>
 			</View>
 		)
 	}
