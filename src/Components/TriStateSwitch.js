@@ -48,30 +48,56 @@ export default class TriStateSwitch extends Component {
 
 		return (
       <View style={styles.switch__container}>
+        <Animated.View
+          ref={switchButton => this.switchButton = switchButton}
+          style={[
+            { left: this.switchValAnimation }, 
+            styles.switch__holder,
+          ]} 
+        />
+
         <TouchableOpacity 
           style={styles.switch__button_container} 
           onPress={this.switchLeft}>
+
           <AnimatedIcon 
             name={this.props.leftIconName} 
             size={20}
+            style = {{
+              color: 'white'
+            }}
           />
+
         </TouchableOpacity>
+
         <TouchableOpacity 
           style={styles.switch__button_container} 
           onPress={this.switchMiddle}>
+
           <AnimatedIcon
             name={this.props.middleIconName}
             size={20}
+            style = {{
+              color: 'white'
+            }}
           />
+
         </TouchableOpacity>
+
         <TouchableOpacity 
           style={styles.switch__button_container} 
           onPress={this.switchRight}>
+
           <AnimatedIcon
             name={this.props.rightIconName}
             size={20}
+            style = {{
+              color: 'white'
+            }}
           />
+
         </TouchableOpacity>
+
 			</View>
 		)
 	}

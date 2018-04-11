@@ -12,6 +12,21 @@ export default StyleSheet.create({
       paddingTop: 7.5,
       paddingBottom: 7.5,
     },
+      switch__holder: {
+        position: 'absolute',
+        backgroundColor: '#EA2027',
+        height: 30,
+        width: 40,
+        borderRadius: 40,
+        elevation: 5,
+        marginLeft: 1.5,
+        marginTop: 7.5,
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        shadowOffset: {
+          height: 4,
+        },
+      },
       switch__button_container: {
         backgroundColor: 'transparent',
         height: 30,
