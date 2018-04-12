@@ -6,9 +6,15 @@ export default StyleSheet.create({
   clubdays_card__container: {
     flexDirection: 'row',
     backgroundColor: 'white',
+    height: 120,
     borderRadius: 6,
     margin: 20,
     padding: 10,
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    shadowOffset: {
+      height: 4,
+    },
   },
 
     /***** Date container *****/
@@ -66,10 +72,8 @@ export default StyleSheet.create({
     clubdays_participants__container: {
       flex: 1,
       flexGrow: 2,
-      width: 200,
       paddingHorizontal: 20,
       paddingVertical: 5,
-      justifyContent: 'space-between',
       // borderColor: '#FFC312',
       // borderWidth: 1,
     },
