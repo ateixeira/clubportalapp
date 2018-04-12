@@ -1,19 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TouchableOpacity, Button, Animated } from 'react-native';
-import EvilIcon from 'react-native-vector-icons/EvilIcons';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { View, 
+  Text, 
+  TouchableOpacity, 
+  Button, 
+  Animated,
+  Dimensions } 
+from 'react-native';
 import moment from 'moment';
 
-import TriStateSwitch from './TriStateSwitch';
+import ClubDaysCardDate from './ClubDaysCardDate';
+import ClubDaysCardParticipants from './ClubDaysCardParticipants';
 import styles from './Styles/ClubDaysCardStyles';
 
-const AnimatedIcon = Animated.createAnimatedComponent(Icon);
+const { width, height } = Dimensions.get('window');
 
 class ClubDaysCard extends React.Component {
 
   constructor(props){
     super(props);
+
+    this.state = {
+      clubDaysCardExpanded: false,
+    }
+
+    this._toggleClubdayCard = this._toggleClubdayCard.bind(this);
   }
 
   UNSAFE_componentWillMount() {
@@ -31,10 +42,6 @@ class ClubDaysCard extends React.Component {
       .filter(r => r.reactionType === 'ATTEND');
   }
 
-  _onChange(e) {
-    console.log('ON CHANGE ---> ', e)
-  }
-
   _getUserReaction() {
     const { user } = this.props;
     const userReaction = this.confirmedUsers
@@ -47,50 +54,26 @@ class ClubDaysCard extends React.Component {
         : false;
   }
 
+  _toggleClubdayCard() {
+    this.setState({
+      ...this.state,
+      clubDaysCardExpanded: !this.state.clubDaysCardExpanded,
+    })
+    console.log(`Clubday expand ---> ${this.state.clubDaysCardExpanded}`)
+  }
+
   render() {
     const nextClubdayDate = moment(this.nextClubday.date);
 
     return (
-      <TouchableOpacity style={[styles.clubdays_card__container]}>
-        <View style={[styles.clubdays_date__container]}>
-          <View style={[styles.clubdays_weekday__container]}>
-            <Text style={[styles.clubdays_weekday__text]}>
-              {nextClubdayDate.format('dddd')}
-            </Text>
-          </View>
-          <View style={[styles.clubdays_day__container]}>
-            <Text style={[styles.clubdays_day__text]}>
-              {nextClubdayDate.format('DD')}
-            </Text>
-          </View>
-          <View style={[styles.clubdays_month_year__container]}>
-            <Text style={[styles.clubdays_month_year__text]}>
-              {nextClubdayDate.format('MMMM YYYY')}
-            </Text>
-          </View>
-          <View style={[styles.clubdays_location__container]}>
-            <Text style={[styles.clubdays_location__text]}>De meern</Text>
-            <EvilIcon name="location" size={12} color="#ED4C67" />
-          </View>
-        </View>
-        <View style={[styles.clubdays_participants__container]}>
-          <View style={[styles.clubdays_participation_summary__container]}>
-            <Text style={[styles.clubdays_participants_count__text]}>{this.confirmedUsers.length}</Text>
-            <Text style={[styles.clubdays_participants_desc__text]}>people confirmed...</Text>
-          </View>
-          <View style={[styles.clubdays_participation_inquiry__container]}>
-            <Text style={[styles.clubdays_participation_inquiry__text]}>What about you?</Text>
-          </View>
-          <View style={[styles.clubdays_participation_switch__container]}>
-            <TriStateSwitch
-              AnimatedIcon={AnimatedIcon}
-              leftIconName={'times'}
-              middleIconName={'question'}
-              rightIconName={'check'}
-              userReaction={this.userReaction}
-              onChange={this._onChange}
-            />
-          </View>
+      <TouchableOpacity style={[
+        styles.clubdays_card__container]}
+        onPress={this._toggleClubdayCard}>
+        <View ref="container"
+          style={[{ alignItems: 'center' }]}>
+
+          <ClubDaysCardDate nextClubdayDate={nextClubdayDate} />
+          <ClubDaysCardParticipants confirmedUsers={this.confirmedUsers} />
         </View>
       </TouchableOpacity>
     )
@@ -101,7 +84,7 @@ const mapStateToProps = (state) => {
   return {
     login: state.login,
     user: state.user,
-    clubdays: state.clubdays
+    clubdays: state.clubdays,
   }
 }
 

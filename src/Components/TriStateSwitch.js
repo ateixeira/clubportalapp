@@ -66,7 +66,7 @@ export default class TriStateSwitch extends Component {
       <View style={styles.switch__container}>
 
         <Animated.View
-          ref={switchButton => this.switchButton = switchButton}
+          // ref={switchButton => this.switchButton = switchButton}
           style={[
             { left: this.switchValAnimation }, 
             styles.switch__holder,
