@@ -18,14 +18,21 @@ class MainScreen extends Component {
   
   render() {
     const { navigate } = this.props.navigation;
+    const loadingMsg = "Loading...";
     return (
       <View style={styles.container}>
         <View style={styles.user_card__container}>
-          {/* {this.props.user.isFetching ? loadingMsg : userCard} */}
-          <UserCard {...this.props} />
+          {this.props.user.isFetching 
+            ? loadingMsg 
+            : <UserCard {...this.props} />
+          }
+          {/* <UserCard {...this.props} /> */}
         </View>
         <View style={styles.content__container}>
-          <ClubDaysCard {...this.props} />
+          {this.props.user.isFetching
+            ? loadingMsg
+            : <ClubDaysCard />
+          }
         </View>
         <TouchableOpacity onPress={this.props.logout}>
           <Text>Logout</Text>

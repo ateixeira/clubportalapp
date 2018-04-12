@@ -25,30 +25,32 @@ export default class TriStateSwitch extends Component {
     this.med_left_value = (this.min_value + this.med_value)/2;
     this.med_right_value = (this.med_left_value * 3) - (this.min_value * 2);
 
+    this.startValue = 
+      this.props.userReaction === undefined ? 45 : this.props.userReaction === true ? 90 : 0;
+
     this.state = {
-      startValue: this.min_value,
+      startValue: this.startValue,
+      isSaving: false,
     }
 
-    this.switchVal = this.state.startValue;
-    this.switchValAnimation = new Animated.Value(this.switchVal);
-    this.switchValAnimation.addListener(({ val }) => this.switchVal = val);
+    // this.switchVal = this.state.startValue;
+    this.switchValAnimation = new Animated.Value(this.state.startValue);
+    // this.switchValAnimation.addListener(({value}) => this.switchVal = value);
 
   };
 
 	switchLeft = () => {
-    console.log('clicked switchLeft');
     this.switchToItem(0);
   }
 	switchMiddle = () => {
-    console.log('clicked switchMiddle');
     this.switchToItem(45);
   }
 	switchRight = () => {
-    console.log('clicked switchRight');
     this.switchToItem(90);
   }
 
   switchToItem = (target) => {
+    this.props.onChange(target);
     Animated.timing(this.switchValAnimation, {
       toValue: target,
       duration: Metrics.triStateSwitch.animation.duration
@@ -59,7 +61,6 @@ export default class TriStateSwitch extends Component {
   
 	renderSwitch = () => {
     const AnimatedIcon = this.props.AnimatedIcon;
-    console.log('leftValue', this.state.startValue);
 
 		return (
       <View style={styles.switch__container}>
