@@ -38,7 +38,7 @@ export default StyleSheet.create({
       },
         clubdays_weekday__text:{
           fontWeight: 'bold',
-          fontSize: 26,
+          fontSize: 24,
         },
       clubdays_month_year__container: {
         // borderColor: 'black',
@@ -75,6 +75,7 @@ export default StyleSheet.create({
     },
       clubdays_participation_summary__container: {
         flexDirection: 'row',
+        justifyContent: 'center',
         // borderColor: 'yellow',
         // borderWidth: 1,
       },
@@ -95,7 +96,8 @@ export default StyleSheet.create({
         },
       clubdays_participation_inquiry__container: {
         flexDirection: 'row',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
+        paddingTop: 15,
       },
         clubdays_participation_inquiry__text: {
           fontWeight: 'bold',

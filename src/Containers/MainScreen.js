@@ -17,7 +17,7 @@ class MainScreen extends Component {
   }
   
   render() {
-    const { navigate } = this.props.navigation
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <View style={styles.user_card__container}>

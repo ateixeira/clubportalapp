@@ -17,8 +17,6 @@ class ClubDaysCard extends React.Component {
   _willUserAttend() {
     const { user } = this.props;
 
-    console.log('user', user);
-
     const x = this._getHighlightedClubDay().reactions
       .filter((r) => r.userView.id === user.details.id)
       // .map((r) => r.reactionType === 'ATTEND')
@@ -28,14 +26,18 @@ class ClubDaysCard extends React.Component {
   }
 
   render() {
+    const nextClubday = this._getHighlightedClubDay();
+    console.log('nextClubday', nextClubday);
+    // const { date } = new Date(nextClubday.date);
     return (
+      !this.props.clubdays ? <Text>Loading ...</Text> : 
       <TouchableOpacity style={[styles.clubdays_card__container]}>
         <View style={[styles.clubdays_date__container]}>
           <View style={[styles.clubdays_weekday__container]}>
             <Text style={[styles.clubdays_weekday__text]}>Friday</Text>
           </View>
           <View style={[styles.clubdays_day__container]}>
-            <Text style={[styles.clubdays_day__text]}>20</Text>
+              <Text style={[styles.clubdays_day__text]}>20</Text>
           </View>
           <View style={[styles.clubdays_month_year__container]}>
             <Text style={[styles.clubdays_month_year__text]}>April 2018</Text>
