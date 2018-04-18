@@ -9,10 +9,4 @@ describe('ClubDaysCardDate component', () => {
     const card = renderer.create(<ClubDaysCardDate nextClubdayDate={nextClubdayDate} />).toJSON()
     expect(card).toMatchSnapshot();
   })
-
-  it('does not render if date is not provided', () => {
-    const card = renderer.create(<ClubDaysCardDate nextClubdayDate={nextClubdayDate} show={false} />).toJSON()
-    expect(card).toMatchSnapshot();
-  })
-
 })
